@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/listsViewFragment">
+
+    <fragment
+        android:id="@+id/listsViewFragment"
+        android:name="pl.edu.uwr.lista3.ListsViewFragment"
+        android:label="fragment_listsview"
+        tools:layout="@layout/fragment_listsview" >
+    <action
+        android:id="@+id/to_showListFragment"
+        app:destination="@id/showListFragment" >
+        <argument
+            android:name="moduleID"
+            app:argType="string"/>
+    </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/showListFragment"
+        android:name="pl.edu.uwr.lista3.ShowListFragment"
+        android:label="fragment_showlist"
+        tools:layout="@layout/fragment_showlist">
+    <action
+        android:id="@+id/to_listsViewFragment"
+        app:destination="@id/listsViewFragment" />
+    </fragment>
+</navigation>
