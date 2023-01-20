@@ -114,6 +114,7 @@ class DBhelper(context: Context) : SQLiteOpenHelper (
         private const val COLUMN_NAME = "name"
         private const val COLUMN_DESCRIPTION = "description"
         private const val COLUMN_TASKS = "tasks"
+        private const val KEY_IMAGE = "image"
 
     }
     override fun onCreate(db: SQLiteDatabase?) {
@@ -122,7 +123,8 @@ class DBhelper(context: Context) : SQLiteOpenHelper (
                     "$COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
                     "$COLUMN_NAME TEXT," +
                     "$COLUMN_DESCRIPTION STRING," +
-                    "$COLUMN_TASKS STRING)"
+                    "$COLUMN_TASKS STRING,"+
+                    "$KEY_IMAGE TEXT)"
         db?.execSQL(CREATE_LISTS_TABLE)
 
     }
@@ -138,6 +140,7 @@ class DBhelper(context: Context) : SQLiteOpenHelper (
         contentValues.put(COLUMN_NAME,listForClass.name)
         contentValues.put(COLUMN_DESCRIPTION,listForClass.description)
         contentValues.put(COLUMN_TASKS,listForClass.tasks)
+        contentValues.put(KEY_IMAGE, listForClass.image)
 
         db.insert(TABLE_LISTS, null, contentValues)
         db.close()
@@ -154,13 +157,14 @@ class DBhelper(context: Context) : SQLiteOpenHelper (
         db.close()
 
     }
-    fun updateList (id: Int, name: String, description: String, tasks: String){
+    fun updateList (id: Int, name: String, description: String, tasks: String, image: String){
         val db = this.writableDatabase
         val contentValues = ContentValues()
 
         contentValues.put(COLUMN_NAME,name)
         contentValues.put(COLUMN_DESCRIPTION,description)
         contentValues.put(COLUMN_TASKS,tasks)
+        contentValues.put(KEY_IMAGE,image)
 
         db.update(TABLE_LISTS,
             contentValues,
@@ -180,7 +184,8 @@ class DBhelper(context: Context) : SQLiteOpenHelper (
                     cursor.getInt(0),
                     cursor.getString(1),
                     cursor.getString(2),
-                    cursor.getString(3)
+                    cursor.getString(3),
+                    cursor.getString(4)
                    )
                 )
             } while (cursor.moveToNext())

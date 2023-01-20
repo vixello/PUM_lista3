@@ -2,6 +2,7 @@ package pl.edu.uwr.lista3
 
 import android.app.Dialog
 import android.content.Context
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.Navigation
@@ -21,6 +22,7 @@ class ListsAdapter(private val  dbHandler: DBhelper, private val context: Contex
             itemBinding.textViewName.text = item.name
             itemBinding.textViewDescription.text = item.description
             itemBinding.textViewId.text = item.id.toString()
+            itemBinding.imageViewTasks.setImageURI(Uri.parse(item.image))
 
             itemBinding.imageViewDelete.setOnClickListener {
                 dbHandler.deleteList(item)
@@ -36,7 +38,7 @@ class ListsAdapter(private val  dbHandler: DBhelper, private val context: Contex
 
         }
 
-        private fun setupDialog(item: ListForClass) {
+/*        private fun setupDialog(item: ListForClass) {
             val dialog = Dialog(context)
             val dialogBinding = DialogUpdateBinding.inflate(LayoutInflater.from(context))
             dialog.apply {
@@ -46,6 +48,7 @@ class ListsAdapter(private val  dbHandler: DBhelper, private val context: Contex
             dialogBinding.apply {
                 editTextDescriptionUpdate.setText(item.description)
                 editTextNameUpdate.setText(item.name)
+                editImageTasksUpdate.setImageURI(Uri.parse(item.image))
                 //editTextTasksUpdate.setText(item.tasks)
                 buttonUpdate.setOnClickListener {
                     updateDialog(dialogBinding, item, dialog)
@@ -63,13 +66,14 @@ class ListsAdapter(private val  dbHandler: DBhelper, private val context: Contex
             val updateName = dialogBinding.editTextNameUpdate.text.toString()
             val updateDescription = dialogBinding.editTextDescriptionUpdate.text.toString()
             val updateTasks = dialogBinding.editTextTasksUpdate.text.toString()
+            val updateImage = dialogBinding.editImageTasksUpdate.setImageURI(Uri.parse(item.image)).toString()
             if (updateName.isNotEmpty() && updateDescription.isNotEmpty()&& updateTasks.isNotEmpty()) {
-                dbHandler.updateList(item.id, updateName, updateDescription, updateTasks)
+                dbHandler.updateList(item.id, updateName, updateDescription, updateTasks, updateImage)
                 notifyItemChanged(adapterPosition)
 
                 dialog.dismiss()
             }
-        }
+        }*/
         }
         override fun onCreateViewHolder(
         parent: ViewGroup,

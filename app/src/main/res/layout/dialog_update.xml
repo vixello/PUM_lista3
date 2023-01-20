@@ -22,12 +22,12 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="25dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
             android:text="Name"
-            android:textStyle="bold"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
         <EditText
             android:id="@+id/edit_text_name_update"
             android:layout_width="0dp"
@@ -44,20 +44,20 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="25dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
             android:text="Descritpion"
-            android:textStyle="bold"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/edit_text_description_update"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.75"
-            android:inputType="textEmailAddress"
-            android:hint="Enter Description" />
+            android:hint="Enter Description"
+            android:inputType="textEmailAddress" />
 
 
     </LinearLayout>
@@ -68,7 +68,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="25dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
             android:text="Tasks"
@@ -85,6 +85,32 @@
 
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:text="Image"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/edit_image_tasks_update"
+            android:layout_width="275dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="UPDATE image"
+            android:backgroundTint="@color/purplee"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
